@@ -2,6 +2,8 @@ import React, { useEffect  } from 'react';
 import {connect} from 'react-redux'
 import {BrowserRouter, Route , Switch} from 'react-router-dom'
 
+import Tetris from './containers/tetris'
+// eslint-disable-next-line
 
 const App = props => {
 
@@ -11,7 +13,7 @@ const App = props => {
   return (
     <BrowserRouter>
     <div className="App">
-      start...
+      <Tetris />
       
     </div>
     </BrowserRouter>

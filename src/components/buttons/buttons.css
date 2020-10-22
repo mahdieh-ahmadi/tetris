@@ -1,0 +1,30 @@
+.btn{
+    background-color: purple;
+    border-radius: 50%;
+    border: 1px solid black;
+    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.726) inset , 0 -3px 5px rgba(0, 0, 0, 0.568) inset;
+    cursor: pointer;
+    padding: 0.2px;
+}
+
+.medium_btn{
+    width: 60px;
+    height: 60px;  
+}
+
+.big_btn{
+    width: 100px;
+    height: 100px;
+}
+
+.red_btn {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+}
+
+.green_btn{
+    background-color: green;
+    width: 30px;
+    height: 30px;
+}
