@@ -9,8 +9,20 @@ import './tetris.css'
 
 const Tetris = () => {
     return <div className='tetris'>
-        <Btn class={'green_btn'}/>
         <Monitore />
+        <div className='setting_btns'>
+            <Btn class={'green_btn'}/>
+            <Btn class={'red_btn'}/>
+        </div>
+        <div className='power_btn'>
+            <Btn class={'big_btn'}/>
+        </div>
+        <div className='controll_btn'>
+            <Btn class={'medium_btn'}/>
+            <Btn class={'medium_btn'}/>
+            <Btn class={'medium_btn'}/>
+            <Btn class={'medium_btn'}/>
+        </div>
     </div>
 }
 
