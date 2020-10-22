@@ -1,0 +1,15 @@
+.monitore{
+    width: 75%;
+    background-color: grey;
+    box-shadow: 2px 2px 1px black inset , -2px -2px 1px black inset;
+    border-top: 5px solid rgba(155, 142, 2, 0.3);
+    border-left: 5px solid rgba(155, 142, 2, 0.3);
+    border-right: 5px solid rgb(255, 240, 157);
+    border-bottom: 5px solid rgb(255, 240, 157);
+
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 10px;
+    box-sizing: border-box;
+}

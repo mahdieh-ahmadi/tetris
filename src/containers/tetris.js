@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Btn from '../components/buttons/buttons'
+import Monitore from './monitor'
 
 import './tetris.css'
 
@@ -9,6 +10,7 @@ import './tetris.css'
 const Tetris = () => {
     return <div className='tetris'>
         <Btn class={'green_btn'}/>
+        <Monitore />
     </div>
 }
 
