@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Block from './blocks/blocks'
+
 import './game_space.css'
 
 const GameSpace = () => {
@@ -11,7 +13,7 @@ const GameSpace = () => {
     return <div className='space'>
         {blocks.map(item => {
             return <div>
-                b
+                <Block />
             </div>
         })}
     </div>

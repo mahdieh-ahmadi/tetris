@@ -1,7 +1,7 @@
 .tetris{
     width: 450px;
     height: 700px;
-    background-color: yellow;
+    background-color: rgb(240,204,28);
     position: absolute;
     top: 50%;
     left: 50%;
