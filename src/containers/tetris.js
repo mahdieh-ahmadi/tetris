@@ -9,6 +9,7 @@ import './tetris.css'
 
 const Tetris = () => {
     return <div className='tetris'>
+        <h1 className='header_title'>tetris</h1>
         <Monitore />
         <div className='setting_btns'>
             <Btn class={'green_btn'}/>

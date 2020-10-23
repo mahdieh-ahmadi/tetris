@@ -9,6 +9,15 @@
     
 }
 
+.header_title{
+    width: fit-content;
+    color: black;
+    font-size: 25px;
+    margin: 20px auto;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
 .setting_btns{
     display: flex;
     align-items: center;
@@ -31,7 +40,7 @@
     height: 100px;
     position: absolute;
     right: 120px;
-    bottom: 150px;
+    bottom: 110px;
 }
 
 .controll_btn *:nth-child(1){

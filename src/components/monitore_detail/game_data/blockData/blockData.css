@@ -1,0 +1,17 @@
+.blockDate{
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.blockDate_titr{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.blockDate_data{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
