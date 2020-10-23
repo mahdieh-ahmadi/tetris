@@ -1,17 +1,38 @@
+@font-face{
+    font-family: digitalFont;
+    src: url('DS-DIGI.TTF');
+}
+
+@font-face{
+    font-family: digitalFontBold;
+    src: url('DS-DIGIB.TTF');
+}
+
 .blockDate{
     width: 100%;
-    height: 50px;
+    height: 40px;
     position: relative;
+    margin-bottom: 30px;
+}
+
+.blockDate *{
+    color: rgb(16, 26, 1);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .blockDate_titr{
+    font-family: digitalFont;
+    font-size: 22px;
     position: absolute;
     top: 0;
     left: 0;
 }
 
 .blockDate_data{
+    font-family: digitalFontBold;
+    font-size: 25px;
     position: absolute;
     bottom: 0;
     right: 0;
+    font-weight: 700;
 }
