@@ -2,10 +2,17 @@
     background-color: purple;
     border-radius: 50%;
     border: 1px solid black;
-    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.726) inset , 0 -3px 5px rgba(0, 0, 0, 0.568) inset;
+    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.726) inset , 0 -3px 5px rgba(0, 0, 0, 0.568) inset, 0px 3px 4px rgba(0, 0, 0, 0.692);
     cursor: pointer;
     padding: 0.2px;
+    transition: all 0.3s;
 }
+
+.clicked{
+    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.726) inset , 0 -3px 5px rgba(0, 0, 0, 0.568) inset ;
+}
+
+
 
 .medium_btn{
     width: 60px;

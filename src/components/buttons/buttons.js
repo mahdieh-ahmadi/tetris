@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './buttons.css'
 
 const Btn = props => {
-return <div className={`btn ${props.class}`}></div>
+    const [classes , setclasses] = useState(['btn' , `${props.class}` ])
+
+    const clicked = () => {
+        setclasses([...classes , 'clicked'])
+    }
+
+    const mouseup = () => {
+        setclasses(['btn' , `${props.class}` ])
+    }
+
+return <div className={classes.join(' ')} onMouseDown={ clicked} onMouseUp={mouseup}></div>
 }
 
 export default Btn
