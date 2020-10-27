@@ -16,3 +16,11 @@
     /*margin: 2px;*/
     background-color: rgb(133,144,112);
 }
+
+.blocksBlack{
+    border: 1px solid black;
+}
+
+.blocksBlack .inBlocks{
+    background-color: black;
+}
