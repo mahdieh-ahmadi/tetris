@@ -17,13 +17,14 @@ useEffect(() => {
     for (let index = 0; index < 10*20 ; index++) {
         setNewblock(prestate => [...prestate , index])
         }
-    setselect(2)
+    setselect(5)
 } , [])
 
 blocks = newblock;
 
-if(select == 1 && props.L < 17 || 
-    select == 2 && props.L < 19){
+if((select == 1 || select == 4 || select == 5) && props.L < 17 || 
+    select == 2  && props.L < 19 ||
+    select == 3  && props.L < 18){
     setTimeout(() => {
         props.run()
         console.log(props.L)
@@ -54,18 +55,28 @@ if(select == 1 && props.L < 17 ||
                 blocks[(10*L)+j+r] = 'select'
                 blocks[(10*(L+1))+j+r] = 'select'
             }
+            
+                blocks[(10*(L-1))+1+r] = '0'
+                blocks[(10*(L-1))+r] = '0'
+            
         break
         case 4:
             blocks[L*10+r] = 'select'
             blocks[(L+1)*10+1+r] = 'select'
             blocks[(L+1)*10+r] = 'select'
             blocks[(L+2)*10+r] = 'select'
+
+            blocks[(L-1)*10+r] = '0'
+            blocks[(L)*10+1+r] = '0'
         break
         case 5:
             for(let j=0 ;j<2 ; j++){
                 blocks[(L+j)*10+j+r] = 'select'
                 blocks[(L+j+1)*10+j+r] = 'select'
             }
+            blocks[(L-1)*10+r] = '0'
+            blocks[(L)*10+r+1] = '0'
+
         break
         default:
             break;
