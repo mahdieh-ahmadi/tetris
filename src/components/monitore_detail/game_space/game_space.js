@@ -54,22 +54,11 @@ if(props.add === 'right'){
         case 5:
             blocks[L*10+props.r-1] = '0'
             blocks[(L+1)*10+props.r-1] = '0'
-            blocks[(L+2)*10+props.r-1] = '0'
-            blocks[(L+3)*10+props.r-1] = '0'
-            blocks[(L+1)*10+props.r-1] = '0'
-
-            blocks[L*10+props.r] = '0'
-            blocks[(L+1)*10+props.r] = '0'
             blocks[(L+2)*10+props.r] = '0'
+            blocks[(L+3)*10+props.r+1] = '0'
             blocks[(L+3)*10+props.r] = '0'
-            blocks[(L+1)*10+props.r] = '0'
-
-            blocks[L*10+props.r-2] = '0'
-            blocks[(L+1)*10+props.r-2] = '0'
-            blocks[(L+2)*10+props.r-2] = '0'
-            blocks[(L+3)*10+props.r-2] = '0'
-            blocks[(L+1)*10+props.r-2] = '0'
-            
+            blocks[(L+2)*10+props.r-1] = '0'
+ 
             break;
     
         default:
@@ -78,6 +67,37 @@ if(props.add === 'right'){
     props.cancleAdd()
 }
 if(props.add === 'left'){
+    switch (props.select) {
+        case 1:
+            blocks[(L)*10+(props.r+2)] = '0'
+            blocks[(L+2)*10+(props.r+1)] = '0'
+            blocks[(L+1)*10+(props.r+1)] = '0'
+            break;
+        case 2:
+            blocks[(L)*10+(props.r-1)] = '0'
+            break;
+        case 3:
+            blocks[L*10+props.r-1] = '0'
+            blocks[(L+1)*10+props.r-1] = '0'
+            break;
+        case 4:
+            blocks[(L)*10+(props.r-1)] = '0'
+            blocks[(L+1)*10+(props.r-1)] = '0'
+            blocks[(L+2)*10+(props.r-1)] = '0'
+            break;
+        case 5:
+            blocks[L*10+props.r-1] = '0'
+            blocks[(L+1)*10+props.r-1] = '0'
+            blocks[(L+2)*10+props.r] = '0'
+            blocks[(L+3)*10+props.r+1] = '0'
+            blocks[(L+3)*10+props.r] = '0'
+            blocks[(L+2)*10+props.r-1] = '0'
+ 
+            break;
+    
+        default:
+            break;
+    }
     props.cancleAdd()
 }
 
