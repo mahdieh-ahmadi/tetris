@@ -55,7 +55,7 @@
 
 .controll_btn *:nth-child(3){
     grid-row: 4/5;
-    grid-column: 3/42;
+    grid-column: 3/4;
 }
 
 .controll_btn *:nth-child(4){

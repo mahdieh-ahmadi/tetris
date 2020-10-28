@@ -13,7 +13,7 @@ const Btn = props => {
         setclasses(['btn' , `${props.class}` ])
     }
 
-return <div className={classes.join(' ')} onMouseDown={ clicked} onMouseUp={mouseup}></div>
+return <div className={classes.join(' ')} onMouseDown={ clicked} onMouseUp={mouseup} onClick={props.click}></div>
 }
 
 export default Btn
