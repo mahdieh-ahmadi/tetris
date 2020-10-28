@@ -8,31 +8,33 @@ import './game_space.css'
 const GameSpace = props => {
 let blocks = []    
 const [newblock , setNewblock] = useState([])
-const [select , setselect] = useState(0) 
-/* const [L , setL] = useState(18)  */
 const [r , setr] = useState(2)
 let L = props.L
 
 useEffect(() => {
     for (let index = 0; index < 10*20 ; index++) {
-        setNewblock(prestate => [...prestate , index])
+        setNewblock(prestate => [...prestate , '0'])
         }
-    setselect(5)
+    props.setselect()
 } , [])
 
 blocks = newblock;
 
-if((select == 1 || select == 4 || select == 5) && props.L < 17 || 
-    select == 2  && props.L < 19 ||
-    select == 3  && props.L < 18){
+if((props.select === 1  && props.L < 17 && blocks[(L+3)*10+r] === '0' && blocks[(L+1)*10+r+1] === '0' ) || 
+    (props.select === 4  && props.L < 17 &&  blocks[(L+3)*10+r] === '0' && blocks[(L+2)*10+r+1] === '0' )||
+    (props.select === 5  && props.L < 17 &&  blocks[(L+2)*10+r] === '0' && blocks[(L+3)*10+r+1] === '0' )||
+    (props.select === 2  && props.L < 19 &&  blocks[(L+1)*10+r] === '0' && blocks[(L+1)*10+r+1] === '0' && blocks[(L+1)*10+r+2] === '0' && blocks[(L+1)*10+r+3] === '0') ||
+    (props.select === 3  && props.L < 18 &&  blocks[(L+2)*10+r] === '0' && blocks[(L+2)*10+r+1] === '0')){
     setTimeout(() => {
         props.run()
-        console.log(props.L)
     }, 1000);
+}else{
+    props.setselect()
+    props.rerun()
 }
 
 
-    switch (select) {
+    switch (props.select) {
         case 1:
             blocks[L*10+r] = 'select'
             blocks[L*10+1+r] = 'select'
@@ -94,11 +96,14 @@ if((select == 1 || select == 4 || select == 5) && props.L < 17 ||
 }
 
 const mapStateToprops = state => {return{
-    L:state.L
+    L:state.L,
+    select : state.select
 }}
 
 const mapDispatchToProps = dispatch => {return{
-    run : () => dispatch({type : 'add'})
+    run : () => dispatch({type : 'add'}),
+    setselect : () => dispatch({type : 'select'}),
+    rerun : () => dispatch({type : 'rerun'})
 }}
 
 export default connect(mapStateToprops,mapDispatchToProps)(GameSpace)
