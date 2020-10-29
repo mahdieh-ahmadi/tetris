@@ -10,12 +10,10 @@ import './tetris.css'
 
 const Tetris = props => {
     const gotoleft = () => {
-        console.log('left')
         props.gotoleft()
     }
 
     const gotoright = () => {
-        console.log('right')
         props.gotoright()
     }
 

@@ -23,13 +23,16 @@ if((props.select === 1  && props.L < 17 && blocks[(L+3)*10+props.r] === '0' && b
     (props.select === 4  && props.L < 17 &&  blocks[(L+3)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0' )||
     (props.select === 5  && props.L < 17 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+3)*10+props.r+1] === '0' )||
     (props.select === 2  && props.L < 19 &&  blocks[(L+1)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' && blocks[(L+1)*10+props.r+2] === '0' && blocks[(L+1)*10+props.r+3] === '0') ||
-    (props.select === 3  && props.L < 18 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0')){
+    (props.select === 3  && props.L < 18 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0'))
+    {
     setTimeout(() => {
         props.run()
     }, 1000);
 }else{
+    if(props.add === false){
     props.setselect()
     props.rerun()
+    }
 }
 
 if(props.add === 'right'){
@@ -55,9 +58,6 @@ if(props.add === 'right'){
             blocks[L*10+props.r-1] = '0'
             blocks[(L+1)*10+props.r-1] = '0'
             blocks[(L+2)*10+props.r] = '0'
-            blocks[(L+3)*10+props.r+1] = '0'
-            blocks[(L+3)*10+props.r] = '0'
-            blocks[(L+2)*10+props.r-1] = '0'
  
             break;
     
@@ -70,28 +70,25 @@ if(props.add === 'left'){
     switch (props.select) {
         case 1:
             blocks[(L)*10+(props.r+2)] = '0'
-            blocks[(L+2)*10+(props.r+1)] = '0'
             blocks[(L+1)*10+(props.r+1)] = '0'
+            blocks[(L+2)*10+(props.r+1)] = '0'
             break;
         case 2:
-            blocks[(L)*10+(props.r-1)] = '0'
+            blocks[(L)*10+(props.r+4)] = '0'
             break;
         case 3:
-            blocks[L*10+props.r-1] = '0'
-            blocks[(L+1)*10+props.r-1] = '0'
+            blocks[L*10+props.r+2] = '0'
+            blocks[(L+1)*10+props.r+2] = '0'
             break;
         case 4:
-            blocks[(L)*10+(props.r-1)] = '0'
-            blocks[(L+1)*10+(props.r-1)] = '0'
-            blocks[(L+2)*10+(props.r-1)] = '0'
+            blocks[(L)*10+(props.r+1)] = '0'
+            blocks[(L+1)*10+(props.r+2)] = '0'
+            blocks[(L+2)*10+(props.r+1)] = '0'
             break;
         case 5:
-            blocks[L*10+props.r-1] = '0'
-            blocks[(L+1)*10+props.r-1] = '0'
-            blocks[(L+2)*10+props.r] = '0'
-            blocks[(L+3)*10+props.r+1] = '0'
-            blocks[(L+3)*10+props.r] = '0'
-            blocks[(L+2)*10+props.r-1] = '0'
+            blocks[L*10+props.r+1] = '0'
+            blocks[(L+1)*10+props.r+2] = '0'
+            blocks[(L+2)*10+props.r+2] = '0'
  
             break;
     

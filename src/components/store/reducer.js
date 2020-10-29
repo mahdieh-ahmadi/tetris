@@ -12,7 +12,7 @@ const reducer = (state = initialstate , action) => {
         return {...state , L : state.L + 1}
         case 'select':
             /* const newdate = parseInt(Math.random()*5+1) */
-            const newdate = 1
+            const newdate = 5
             return{...state , select : newdate}
         case 'rerun' :
             return{...state , L:0}
