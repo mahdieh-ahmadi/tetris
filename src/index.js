@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStore , compose , combineReducers} from 'redux'
+import {createStore , compose } from 'redux'
 import {Provider} from 'react-redux'
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';

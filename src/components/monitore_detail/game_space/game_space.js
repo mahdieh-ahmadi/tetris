@@ -15,25 +15,34 @@ useEffect(() => {
         setNewblock(prestate => [...prestate , '0'])
         }
     props.setselect()
+    props.run()
 } , [])
 
 blocks = newblock;
 
-if((props.select === 1  && props.L < 17 && blocks[(L+3)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' ) || 
-    (props.select === 4  && props.L < 17 &&  blocks[(L+3)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0' )||
-    (props.select === 5  && props.L < 17 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+3)*10+props.r+1] === '0' )||
-    (props.select === 2  && props.L < 19 &&  blocks[(L+1)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' && blocks[(L+1)*10+props.r+2] === '0' && blocks[(L+1)*10+props.r+3] === '0') ||
-    (props.select === 3  && props.L < 18 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0'))
-    {
-    setTimeout(() => {
-        props.run()
-    }, 1000);
-}else{
-    if(props.add === false){
-    props.setselect()
-    props.rerun()
+useEffect(() => {
+    let time;
+    if( (  (props.select === 1  && props.L < 17 && blocks[(L+3)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' ) || 
+        (props.select === 4  && props.L < 17 &&  blocks[(L+3)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0' )||
+        (props.select === 5  && props.L < 17 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+3)*10+props.r+1] === '0' )||
+        (props.select === 2  && props.L < 19 &&  blocks[(L+1)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' && blocks[(L+1)*10+props.r+2] === '0' && blocks[(L+1)*10+props.r+3] === '0') ||
+        (props.select === 3  && props.L < 18 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0'))
+        && props.add === false && props.oldL !== props.L)
+        {
+           
+         time = setTimeout(() => {
+            props.run()
+        }, 500);
+    }else{
+        if(props.add === false){
+        props.setselect()
+        props.rerun()
+        }
+        clearInterval(time)
     }
-}
+} , [props.L])
+
+
 
 if(props.add === 'right'){
     switch (props.select) {
@@ -152,7 +161,7 @@ if(props.add === 'left'){
 
     return <div className='space'>
         {blocks.map(item => {
-            return <div>
+            return <div key={Math.random()}>
                 <Block selected={item}/>
             </div>
         })}
@@ -162,13 +171,17 @@ if(props.add === 'left'){
 
 const mapStateToprops = state => {return{
     L:state.L,
+    oldL : state.oldL,
     select : state.select,
     r : state.r,
     add : state.add
 }}
 
 const mapDispatchToProps = dispatch => {return{
-    run : () => dispatch({type : 'add'}),
+     run : () => dispatch({type : 'add'}),
+    run :() => setTimeout(() => {
+        dispatch({type : 'add'})
+    }, 1000),
     setselect : () => dispatch({type : 'select'}),
     rerun : () => dispatch({type : 'rerun'}),
     cancleAdd : () => dispatch({type:'cancleAdd'})

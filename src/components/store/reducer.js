@@ -1,6 +1,7 @@
 
 const initialstate = {
     L : 0,
+    oldL : '0',
     select : '',
     r : 5,
     add : false
@@ -9,10 +10,9 @@ const initialstate = {
 const reducer = (state = initialstate , action) => {
     switch (action.type) {
         case 'add':
-        return {...state , L : state.L + 1}
+        return {...state ,oldL:state.L ,  L : state.L + 1}
         case 'select':
-            /* const newdate = parseInt(Math.random()*5+1) */
-            const newdate = 5
+            const newdate = parseInt(Math.random()*5+1)
             return{...state , select : newdate}
         case 'rerun' :
             return{...state , L:0}
@@ -20,17 +20,17 @@ const reducer = (state = initialstate , action) => {
             if(state.r === 9){
                 return{...state }
             }else{
-                return{...state , r:state.r+1 , add : 'right'}
+                return{...state , r:state.r+1 , add : 'right' , oldL:state.oldL+1}
             }
             
         case 'goleft':
             if(state.r === 0){
                 return{...state}
             }else{
-                return{...state , r :state.r - 1 , add: 'left'}
+                return{...state , r :state.r - 1 , add: 'left' , oldL:state.oldL+1}
             }
         case 'cancleAdd':
-            return{...state , add:false}
+            return{...state , add:false , oldL:state.oldL-1}
 
         default:
             return{...state}
