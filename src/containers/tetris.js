@@ -25,11 +25,19 @@ const Tetris = props => {
         <h1 className='header_title'>tetris</h1>
         <Monitore />
         <div className='setting_btns'>
+            <span>
             <Btn class={'green_btn'}  click={props.start}/>
+            start
+            </span>
+            <span>
             <Btn class={'red_btn'}  click={props.stop}/>
+            stop
+            </span>
+            
         </div>
         <div className='power_btn'>
             <Btn class={'big_btn'} click={reset}/>
+            reset
         </div>
         <div className='controll_btn'>
             <Btn class={'medium_btn'} click={gotoleft}/>{/* left */}

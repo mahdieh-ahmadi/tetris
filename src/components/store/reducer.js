@@ -27,7 +27,7 @@ const reducer = (state = initialstate , action) => {
         case 'rerun' :
             return{...state , L:0}
         case 'goright':
-            if(state.r === 9){
+            if(state.r === 8){
                 return{...state }
             }else{
                 return{...state , r:state.r+1 , add : 'right' , oldL:state.oldL+1}
