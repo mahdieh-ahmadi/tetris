@@ -20,9 +20,24 @@ useEffect(() => {
 
 blocks = newblock;
 
+const reset = () => {
+    if(props.reset === true){
+        setNewblock([])
+        for (let index = 0; index < 10*20 ; index++) {
+            setNewblock(prestate => [...prestate , '0'])
+            }
+        props.setselect()
+        props.rerun()
+    }
+}
+
+ useEffect(() => { 
+    reset()
+} , [props.reset])
 
 useEffect(() => {
     if(props.start === true ){
+        props.set()
         props.run()
     }
 },[props.start])
@@ -34,7 +49,7 @@ useEffect(() => {
         (props.select === 5  && props.L < 17 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+3)*10+props.r+1] === '0' )||
         (props.select === 2  && props.L < 19 &&  blocks[(L+1)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' && blocks[(L+1)*10+props.r+2] === '0' && blocks[(L+1)*10+props.r+3] === '0') ||
         (props.select === 3  && props.L < 18 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0'))
-        && (props.add === false && props.oldL !== props.L) && props.start === true)
+        && (props.add === false && props.oldL !== props.L) && props.start === true && props.reset === false)
         {
            
          time = setTimeout(() => {
@@ -42,8 +57,7 @@ useEffect(() => {
         }, 800);
     }else{
         if(props.add === false && props.start === true){
-        props.setselect()
-        props.rerun()
+            reset()
         }
         clearInterval(time)
     }
@@ -182,14 +196,16 @@ const mapStateToprops = state => {return{
     select : state.select,
     r : state.r,
     add : state.add,
-    start : state.start
+    start : state.start,
+    reset : state.reset
 }}
 
 const mapDispatchToProps = dispatch => {return{
      run : () => dispatch({type : 'add'}),
     setselect : () => dispatch({type : 'select'}),
     rerun : () => dispatch({type : 'rerun'}),
-    cancleAdd : () => dispatch({type:'cancleAdd'})
+    cancleAdd : () => dispatch({type:'cancleAdd'}),
+    set : () => dispatch({type:'set'})
 }}
 
 export default connect(mapStateToprops,mapDispatchToProps)(GameSpace)

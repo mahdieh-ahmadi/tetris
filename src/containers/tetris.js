@@ -17,15 +17,19 @@ const Tetris = props => {
         props.gotoright()
     }
 
+    const reset = () => {
+        props.reset()
+    }
+
     return <div className='tetris'>
         <h1 className='header_title'>tetris</h1>
         <Monitore />
         <div className='setting_btns'>
-            <Btn class={'green_btn'}/>
-            <Btn class={'red_btn'}/>
+            <Btn class={'green_btn'}  click={props.start}/>
+            <Btn class={'red_btn'}  click={props.stop}/>
         </div>
         <div className='power_btn'>
-            <Btn class={'big_btn'} click={props.start}/>
+            <Btn class={'big_btn'} click={reset}/>
         </div>
         <div className='controll_btn'>
             <Btn class={'medium_btn'} click={gotoleft}/>{/* left */}
@@ -51,7 +55,11 @@ const mapStateToProps = state => {return{
 const mapDispatchToProps = dispatch => {return{
     gotoright : () => dispatch({type:'goright'}),
     gotoleft : () => dispatch({type: 'goleft'}),
-    start: () => dispatch({type : 'start'})
+    start: () => dispatch({type : 'start'}),
+    stop : () => dispatch({type : 'stop'}),
+    setselect : () => dispatch({type : 'select'}),
+    rerun : () => dispatch({type : 'rerun'}),
+    reset : () => dispatch({type:'reset'})
 }}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tetris)

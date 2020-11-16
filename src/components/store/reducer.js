@@ -5,13 +5,20 @@ const initialstate = {
     select : '',
     r : 5,
     add : false,
-    start : false
+    start : false,
+    reset : false
 }
 
 const reducer = (state = initialstate , action) => {
     switch (action.type) {
         case 'start':
-            return{...state , start : !state.start}
+            return{...state , start : true}
+        case 'stop':
+            return {...state , start : false}
+        case 'reset':
+            return {...state , reset: true , start : false}
+        case 'set':
+            return {...state , reset: false}
         case 'add':
         return {...state ,oldL:state.L ,  L : state.L + 1}
         case 'select':
