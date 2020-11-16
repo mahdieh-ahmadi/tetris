@@ -7,34 +7,41 @@ import './game_space.css'
 
 const GameSpace = props => {
 let blocks = []    
-const [newblock , setNewblock] = useState([])
+const [newblock , setNewblock] = useState([]);
 let L = props.L
 
 useEffect(() => {
     for (let index = 0; index < 10*20 ; index++) {
         setNewblock(prestate => [...prestate , '0'])
         }
+
     props.setselect()
-    props.run()
 } , [])
 
 blocks = newblock;
 
+
+useEffect(() => {
+    if(props.start === true ){
+        props.run()
+    }
+},[props.start])
+
 useEffect(() => {
     let time;
-    if( (  (props.select === 1  && props.L < 17 && blocks[(L+3)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' ) || 
+    if( ((props.select === 1  && props.L < 17 && blocks[(L+3)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' ) || 
         (props.select === 4  && props.L < 17 &&  blocks[(L+3)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0' )||
         (props.select === 5  && props.L < 17 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+3)*10+props.r+1] === '0' )||
         (props.select === 2  && props.L < 19 &&  blocks[(L+1)*10+props.r] === '0' && blocks[(L+1)*10+props.r+1] === '0' && blocks[(L+1)*10+props.r+2] === '0' && blocks[(L+1)*10+props.r+3] === '0') ||
         (props.select === 3  && props.L < 18 &&  blocks[(L+2)*10+props.r] === '0' && blocks[(L+2)*10+props.r+1] === '0'))
-        && props.add === false && props.oldL !== props.L)
+        && (props.add === false && props.oldL !== props.L) && props.start === true)
         {
            
          time = setTimeout(() => {
             props.run()
-        }, 500);
+        }, 800);
     }else{
-        if(props.add === false){
+        if(props.add === false && props.start === true){
         props.setselect()
         props.rerun()
         }
@@ -174,14 +181,12 @@ const mapStateToprops = state => {return{
     oldL : state.oldL,
     select : state.select,
     r : state.r,
-    add : state.add
+    add : state.add,
+    start : state.start
 }}
 
 const mapDispatchToProps = dispatch => {return{
      run : () => dispatch({type : 'add'}),
-    run :() => setTimeout(() => {
-        dispatch({type : 'add'})
-    }, 1000),
     setselect : () => dispatch({type : 'select'}),
     rerun : () => dispatch({type : 'rerun'}),
     cancleAdd : () => dispatch({type:'cancleAdd'})

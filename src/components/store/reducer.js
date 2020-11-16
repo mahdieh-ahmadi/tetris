@@ -4,11 +4,14 @@ const initialstate = {
     oldL : '0',
     select : '',
     r : 5,
-    add : false
+    add : false,
+    start : false
 }
 
 const reducer = (state = initialstate , action) => {
     switch (action.type) {
+        case 'start':
+            return{...state , start : !state.start}
         case 'add':
         return {...state ,oldL:state.L ,  L : state.L + 1}
         case 'select':

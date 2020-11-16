@@ -25,7 +25,7 @@ const Tetris = props => {
             <Btn class={'red_btn'}/>
         </div>
         <div className='power_btn'>
-            <Btn class={'big_btn'}/>
+            <Btn class={'big_btn'} click={props.start}/>
         </div>
         <div className='controll_btn'>
             <Btn class={'medium_btn'} click={gotoleft}/>{/* left */}
@@ -42,7 +42,8 @@ const mapStateToProps = state => {return{
 
 const mapDispatchToProps = dispatch => {return{
     gotoright : () => dispatch({type:'goright'}),
-    gotoleft : () => dispatch({type: 'goleft'})
+    gotoleft : () => dispatch({type: 'goleft'}),
+    start: () => dispatch({type : 'start'})
 }}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tetris)

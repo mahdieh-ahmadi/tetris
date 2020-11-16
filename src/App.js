@@ -1,6 +1,6 @@
-import React, { useEffect  } from 'react';
-import {connect} from 'react-redux'
-import {BrowserRouter, Route , Switch} from 'react-router-dom'
+import React from 'react';
+//import {connect} from 'react-redux'
+import {BrowserRouter } from 'react-router-dom'
 
 import Tetris from './containers/tetris'
 // eslint-disable-next-line
