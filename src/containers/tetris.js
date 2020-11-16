@@ -30,8 +30,16 @@ const Tetris = props => {
         <div className='controll_btn'>
             <Btn class={'medium_btn'} click={gotoleft}/>{/* left */}
             <Btn class={'medium_btn'} /> 
+            
             <Btn class={'medium_btn'} /> 
             <Btn class={'medium_btn'} click={gotoright}/>{/* right */}
+
+            <div className = 'arrows'>
+                <div>&#9650;</div>{/* top */}
+                <div>&#9660;</div>{/* down */}
+                <div>&#9658;</div>{/* right */}
+                <div>&#9664;</div>{/* left */}
+            </div>
         </div>
     </div>
 }

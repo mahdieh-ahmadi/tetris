@@ -34,7 +34,7 @@
 
 .controll_btn{
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+    grid-template-columns: repeat(3 , 1fr);
     grid-template-rows: repeat(3,1fr);
     width: 100px;
     height: 100px;
@@ -43,22 +43,53 @@
     bottom: 110px;
 }
 
-.controll_btn *:nth-child(1){
+.controll_btn *:nth-child(1){/*left*/
     grid-row: 2/3;
     grid-column: 1/2;
 }
 
-.controll_btn *:nth-child(2){
+.controll_btn *:nth-child(2){/*top*/
     grid-row: 1/2;
-    grid-column: 3/4;
+    grid-column: 2/3;
 }
 
-.controll_btn *:nth-child(3){
-    grid-row: 4/5;
-    grid-column: 3/4;
+.controll_btn *:nth-child(3){/*bottom*/
+    grid-row: 3/4;
+    grid-column: 2/3;
 }
 
-.controll_btn *:nth-child(4){
+.controll_btn *:nth-child(4){/*right*/
     grid-row: 2/3;
-    grid-column: 4/5;
+    grid-column: 3/4;
+}
+
+.arrows{
+    width:100%;
+    height: 100%;
+    grid-row: 2/3;
+    grid-column: 2/3;
+
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+.arrows *:nth-child(1){
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+.arrows *:nth-child(2){
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+
+.arrows *:nth-child(3){
+    grid-row: 2/3;
+    grid-column: 3/4;
+}
+
+.arrows *:nth-child(4){
+    grid-row: 2/3;
+    grid-column: 1/2;
 }
